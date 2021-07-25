@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
 import org.springframework.http.HttpMethod;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 
 import com.jmm.ecommerce.entities.Product;
 import com.jmm.ecommerce.entities.ProductCategory;
@@ -11,7 +12,8 @@ import com.jmm.ecommerce.entities.ProductCategory;
 @Configuration
 public class MyDataRestConfigAccess implements RepositoryRestConfigurer {
 
-	public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
+	@Override
+	public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config, CorsRegistry cors) {
 
 		HttpMethod[] unsupportedActionsList = { HttpMethod.POST, HttpMethod.PUT, HttpMethod.DELETE };
 
